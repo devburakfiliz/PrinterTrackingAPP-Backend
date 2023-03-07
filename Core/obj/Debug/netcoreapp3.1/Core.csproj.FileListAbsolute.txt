@@ -1,0 +1,9 @@
+C:\Users\devbu\source\repos\MyFinalProject\Core\bin\Debug\netcoreapp3.1\Core.deps.json
+C:\Users\devbu\source\repos\MyFinalProject\Core\bin\Debug\netcoreapp3.1\Core.dll
+C:\Users\devbu\source\repos\MyFinalProject\Core\bin\Debug\netcoreapp3.1\Core.pdb
+C:\Users\devbu\source\repos\MyFinalProject\Core\obj\Debug\netcoreapp3.1\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\devbu\source\repos\MyFinalProject\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfoInputs.cache
+C:\Users\devbu\source\repos\MyFinalProject\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfo.cs
+C:\Users\devbu\source\repos\MyFinalProject\Core\obj\Debug\netcoreapp3.1\Core.csproj.CoreCompileInputs.cache
+C:\Users\devbu\source\repos\MyFinalProject\Core\obj\Debug\netcoreapp3.1\Core.dll
+C:\Users\devbu\source\repos\MyFinalProject\Core\obj\Debug\netcoreapp3.1\Core.pdb
