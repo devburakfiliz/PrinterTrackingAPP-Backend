@@ -9,7 +9,7 @@ namespace DataAccess.Abstract
 {
     public interface IPrinterDal:IEntityRepository<Printer>
     {
-        //List<ProductDetailDto> GetProductDetails();
-        
+        List<PrinterDto> GetPrinterDtos();
+
     }
 }

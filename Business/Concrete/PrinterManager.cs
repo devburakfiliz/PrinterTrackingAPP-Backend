@@ -88,6 +88,14 @@ namespace Business.Concrete
             _printerDal.Delete(printer);
             return new SuccessResult(Messages.PrinterDelete);
         }
+
+        public IDataResult<List<PrinterDto>> GetPrinterDtos()
+        {
+            return new SuccessDataResult<List<PrinterDto>>(_printerDal.GetPrinterDtos(), Messages.PrinterListed);
+
+        }
+
+     
     }
 }
 

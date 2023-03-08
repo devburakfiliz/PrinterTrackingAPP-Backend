@@ -27,6 +27,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<TonerManager>().As<ITonerService>().SingleInstance();
             builder.RegisterType<EfTonerDal>().As<ITonerDal>().SingleInstance();
 
+            builder.RegisterType<TonerTrackingManager>().As<ITonerTrackingService>().SingleInstance();
+            builder.RegisterType<EfTonerTrackingDal>().As<ITonerTrackingDal>().SingleInstance();
+
             builder.RegisterType<UserManager>().As<IUserService>();
             builder.RegisterType<EfUserDal>().As<IUserDal>();
 

@@ -50,10 +50,35 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet]
-        public string Get()
+        [HttpGet("getbyprinterid")]
+        public IActionResult GetById(int id)
         {
-            return "merhaba";
+            var result = _printerService.GetById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpGet("getall")]
+        public IActionResult Get()
+        {
+            var result = _printerService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpGet("getdetail")]
+        public IActionResult GetPrinterDtos()
+        {
+            var result = _printerService.GetPrinterDtos();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
     }
 }
