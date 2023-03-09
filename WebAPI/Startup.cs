@@ -10,6 +10,7 @@ using DataAccess.Concrete.EntityFramework;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -39,32 +40,32 @@ namespace WebAPI
         {
 
             services.AddControllers();
-
-            //services.AddSingleton<IPrinterService, PrinterManager>();
-            //services.AddSingleton<IPrinterDal, EfPrinterDal>();
-
+            //services.AddSingleton< ICarService, CarManager>();
+            //services.AddSingleton< ICarDal, EfCarDal>();
+            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddCors();
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();   //using Core.Utilities.Security.JWT;   3.1.12 nuget
 
-
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)   //3.1.12 nuget
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidIssuer = tokenOptions.Issuer,
-                        ValidAudience = tokenOptions.Audience,
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
-                    };
-                });
+                           .AddJwtBearer(options =>
+                           {
+                               options.TokenValidationParameters = new TokenValidationParameters
+                               {
+                                   ValidateIssuer = true,
+                                   ValidateAudience = true,
+                                   ValidateLifetime = true,
+                                   ValidIssuer = tokenOptions.Issuer,
+                                   ValidAudience = tokenOptions.Audience,
+                                   ValidateIssuerSigningKey = true,
+                                   IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
+                               };
+                           });
             services.AddDependencyResolvers(new ICoreModule[] {
                 new CoreModule()
             });
+
+
 
             services.AddSwaggerGen(c =>
             {
@@ -82,12 +83,13 @@ namespace WebAPI
                 app.UseStaticFiles();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
-
             app.ConfigureCustomExceptionMiddleware();
             app.UseCors(builder => builder.WithOrigins("http://localhost:4200", "http://localhost:49821").AllowAnyHeader());
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

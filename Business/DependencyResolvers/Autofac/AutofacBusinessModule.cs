@@ -4,10 +4,12 @@ using Business.Abstract;
 using Business.CCS;
 using Business.Concrete;
 using Castle.DynamicProxy;
+using Core.Utilities.Helper.FileHelper;
 using Core.Utilities.Interceptors;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
+
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -29,6 +31,11 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<TonerTrackingManager>().As<ITonerTrackingService>().SingleInstance();
             builder.RegisterType<EfTonerTrackingDal>().As<ITonerTrackingDal>().SingleInstance();
+
+            builder.RegisterType<PrinterImageManager>().As<IPrinterImageService>().SingleInstance();
+            builder.RegisterType<EfPrinterImageDal>().As<IPrinterImageDal>().SingleInstance();
+
+            builder.RegisterType<FileHelperManager>().As<IFileHelper>().SingleInstance();
 
             builder.RegisterType<UserManager>().As<IUserService>();
             builder.RegisterType<EfUserDal>().As<IUserDal>();

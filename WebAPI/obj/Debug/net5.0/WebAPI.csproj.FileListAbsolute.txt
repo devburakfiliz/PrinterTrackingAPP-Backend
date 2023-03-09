@@ -250,3 +250,10 @@ C:\Users\devbu\source\repos\PrinterTracking-App\PrinterTrackingAPP\WebAPI\obj\De
 C:\Users\devbu\source\repos\PrinterTracking-App\PrinterTrackingAPP\WebAPI\obj\Debug\net5.0\ref\WebAPI.dll
 C:\Users\devbu\source\repos\PrinterTracking-App\PrinterTrackingAPP\WebAPI\obj\Debug\net5.0\WebAPI.pdb
 C:\Users\devbu\source\repos\PrinterTracking-App\PrinterTrackingAPP\WebAPI\obj\Debug\net5.0\WebAPI.genruntimeconfig.cache
+C:\Users\devbu\source\repos\PrinterTracking-App\PrinterTrackingAPP\WebAPI\bin\Debug\net5.0\JWT.dll
+C:\Users\devbu\source\repos\PrinterTracking-App\PrinterTrackingAPP\WebAPI\bin\Debug\net5.0\System.Text.Encodings.Web.dll
+C:\Users\devbu\source\repos\PrinterTracking-App\PrinterTrackingAPP\WebAPI\bin\Debug\net5.0\System.Text.Json.dll
+C:\Users\devbu\source\repos\PrinterTracking-App\PrinterTrackingAPP\WebAPI\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+C:\Users\devbu\source\repos\PrinterTracking-App\PrinterTrackingAPP\WebAPI\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\devbu\source\repos\PrinterTracking-App\PrinterTrackingAPP\WebAPI\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\devbu\source\repos\PrinterTracking-App\PrinterTrackingAPP\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
