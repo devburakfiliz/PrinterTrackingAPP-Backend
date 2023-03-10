@@ -13,6 +13,13 @@ namespace Business.Constants
         public static string PrintersListed = "Yazıcılar Listelendi.";
         public static string PrinterListed = "Yazıcı Listelendi.";
 
+        public static string UserUpdated = "Kullanıcı güncellendi.";
+        public static string UserDelete = "Kullanıcı Silindi.";
+        public static string UsersListed = "Kullanıcılar Listelendi.";
+
+
+
+
         public static string TonerAdded = "Toner Eklendi.";
         public static string TonerUpdated = "Toner güncellendi.";
         public static string TonerDelete = "Toner Silindi.";

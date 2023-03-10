@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
@@ -54,6 +55,12 @@ namespace WebAPI.Controllers
             }
 
             return BadRequest(result.Message);
+        }
+
+        [HttpGet("getClaims")]
+        public ActionResult GetClaims()
+        {
+            return Ok(User.Claims.Where(x => x.Type == ClaimTypes.Role).Select(x => x.Value).ToList());
         }
     }
 }
