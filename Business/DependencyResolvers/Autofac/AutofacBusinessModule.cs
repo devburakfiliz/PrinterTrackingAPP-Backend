@@ -9,7 +9,7 @@ using Core.Utilities.Interceptors;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
-
+using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -28,6 +28,18 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<TonerManager>().As<ITonerService>().SingleInstance();
             builder.RegisterType<EfTonerDal>().As<ITonerDal>().SingleInstance();
+
+            builder.RegisterType<TonerModelManager>().As<ITonerModelService>().SingleInstance();
+            builder.RegisterType<EfTonerModelDal>().As<ITonerModelDal>().SingleInstance();
+
+            builder.RegisterType<PrinterModelManager>().As<IPrinterModelService>().SingleInstance();
+            builder.RegisterType<EfPrinterModelDal>().As<IPrinterModelDal>().SingleInstance();
+
+            builder.RegisterType<TonerBrandManager>().As<ITonerBrandService>().SingleInstance();
+            builder.RegisterType<EfTonerBrandDal>().As<ITonerBrandDal>().SingleInstance();
+
+            builder.RegisterType<PrinterBrandManager>().As<IPrinterBrandService>().SingleInstance();
+            builder.RegisterType<EfPrinterBrandDal>().As<IPrinterBrandDal>().SingleInstance();
 
             builder.RegisterType<TonerTrackingManager>().As<ITonerTrackingService>().SingleInstance();
             builder.RegisterType<EfTonerTrackingDal>().As<ITonerTrackingDal>().SingleInstance();

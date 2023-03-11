@@ -15,5 +15,6 @@ namespace Business.Abstract
         User GetByMail(string email);
         IResult Delete(User user);
         IDataResult<List<User>> GetAll();
+        IResult ChangePassword(int userId, string oldPassword, string newPassword);
     }
 }

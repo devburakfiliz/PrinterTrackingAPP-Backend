@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
@@ -33,6 +34,18 @@ namespace WebAPI.Controllers
         public IActionResult Get()
         {
             var result = _userService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("changePassword")]
+        public IActionResult ChangePassword([FromForm] string oldPassword, [FromForm] string newPassword)
+        {
+            int userId = int.Parse(User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value);
+            var result = _userService.ChangePassword(userId, oldPassword, newPassword);
             if (result.Success)
             {
                 return Ok(result);

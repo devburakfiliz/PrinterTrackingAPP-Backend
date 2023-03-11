@@ -2,6 +2,7 @@
 using Business.Constants;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
+using Core.Utilities.Security.Hashing;
 using DataAccess.Abstract;
 using System;
 using System.Collections.Generic;
@@ -44,6 +45,21 @@ namespace Business.Concrete
         public IDataResult<List<User>> GetAll()
         {
             return new SuccessDataResult<List<User>>(_userDal.GetAll(), Messages.UsersListed);
+        }
+
+        public IResult ChangePassword(int userId, string oldPassword, string newPassword)
+        {
+            var user = _userDal.Get(x => x.Id == userId);
+            if (!HashingHelper.VerifyPasswordHash(oldPassword, user.PasswordHash, user.PasswordSalt))
+            {
+                return new ErrorResult("Parola hatası");
+            }
+            byte[] passwordHash, passwordSalt;
+            HashingHelper.CreatePasswordHash(newPassword, out passwordHash, out passwordSalt);
+            user.PasswordHash = passwordHash;
+            user.PasswordSalt = passwordSalt;
+            _userDal.Update(user);
+            return new SuccessResult("Parolanız değiştirildi");
         }
     }
 
