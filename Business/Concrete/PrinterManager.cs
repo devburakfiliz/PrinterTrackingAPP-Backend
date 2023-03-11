@@ -37,9 +37,8 @@ namespace Business.Concrete
         }
 
 
-        //[SecuredOperation("add,admin")]
-        //[ValidationAspect(typeof(ProductValidator))]
-        //[CacheRemoveAspect("IProductService.Get")]
+        [SecuredOperation("storage,admin")]
+     
         public IResult Add(Printer printer)
         {
            
@@ -65,7 +64,7 @@ namespace Business.Concrete
 
 
 
-        [CacheRemoveAspect("IProductService.Get")] 
+        [SecuredOperation("storage,admin")]
         public IResult Update(Printer printer)
         {
             _printerDal.Update(printer);
@@ -83,6 +82,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.PrinterUpdated);
         }
 
+        [SecuredOperation("storage,admin")]
         public IResult Delete(Printer printer)
         {
             _printerDal.Delete(printer);
