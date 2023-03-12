@@ -13,8 +13,9 @@ namespace Entities.Concrete
         public int TonerId { get; set; }
         public int BrandId { get; set; }
         public int ModelId { get; set; }
-        public int TonerRefilling { get; set; }
         public string Description { get; set; }
         public string Status { get; set; }
+        public int TonerRefilling { get; set; }
+
     }
 }

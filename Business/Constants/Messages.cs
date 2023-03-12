@@ -18,6 +18,10 @@ namespace Business.Constants
         public static string UsersListed = "Kullanıcılar Listelendi.";
 
 
+        public static string PrinterSerialNumberExists = "Aynı seri numarada yazıcı mevcut.";
+        public static string TonerSerialNumberExists = "Aynı seri numarada toner mevcut.";
+
+
 
 
         public static string TonerAdded = "Toner Eklendi.";

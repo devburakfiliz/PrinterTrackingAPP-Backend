@@ -7,6 +7,7 @@ using Entities.Concrete;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -23,8 +24,12 @@ namespace Business.Concrete
         [SecuredOperation("storage,admin")]
         public IResult Add(Toner toner)
         {
-            _tonerDal.Add(toner);
-            return new SuccessResult(Messages.TonerAdded);
+           if (CheckIfTonerSerialNumberExist(toner.SerialNumber).Success)
+            {
+                _tonerDal.Add(toner);
+                return new SuccessResult(Messages.TonerAdded);
+            }
+            return new ErrorResult();
         }
 
         [SecuredOperation("storage,admin")]
@@ -59,6 +64,20 @@ namespace Business.Concrete
         {
             _tonerDal.Update(toner);
             return new SuccessResult(Messages.TonerUpdated);
+        }
+
+
+        private IResult CheckIfTonerSerialNumberExist(string printerSerialNumber)
+        {
+
+            var result = _tonerDal.GetAll(p => p.SerialNumber == printerSerialNumber).Any();
+            if (result)
+            {
+                return new ErrorResult(Messages.PrinterSerialNumberExists);
+
+            }
+            return new SuccessResult();
+
         }
     }
 }

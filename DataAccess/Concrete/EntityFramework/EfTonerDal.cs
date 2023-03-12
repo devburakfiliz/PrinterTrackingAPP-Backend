@@ -28,7 +28,10 @@ namespace DataAccess.Concrete.EntityFramework
                                  BrandId=brand.Id,
                                  BrandName=brand.BrandName,
                                  ModelId=model.Id,
-                                 ModelName=model.ModelName
+                                 ModelName=model.ModelName,
+                                 TonerRefilling = (from tracking in context.TonerTrackings
+                                              where tracking.TonerId == toner.Id
+                                              select tracking.TonerRefilling).FirstOrDefault()
                              };
                 return result.ToList();
             }

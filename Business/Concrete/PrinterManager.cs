@@ -41,9 +41,26 @@ namespace Business.Concrete
      
         public IResult Add(Printer printer)
         {
+
+            //_printerDal.Add(printer);
+            //return new SuccessResult(Messages.PrinterAdded);
+
+          
+            
+                if (CheckIfPrinterSerialNumberExist(printer.SerialNumber).Success)
+                {
+                    _printerDal.Add(printer);
+                    return new SuccessResult(Messages.PrinterAdded);
+                }
+
+                 else { return new ErrorResult(); }
+
+          
+
            
-            _printerDal.Add(printer);
-            return new SuccessResult(Messages.PrinterAdded);
+
+
+
 
         }
 
@@ -95,7 +112,21 @@ namespace Business.Concrete
 
         }
 
-     
+        private IResult CheckIfPrinterSerialNumberExist(string printerSerialNumber)  
+        {
+
+            var result = _printerDal.GetAll(p => p.SerialNumber == printerSerialNumber).Any();
+            if (result)
+            {
+                return new ErrorResult(Messages.PrinterSerialNumberExists);
+
+            }
+            return new SuccessResult();
+
+        }
+
+
+
     }
 }
 

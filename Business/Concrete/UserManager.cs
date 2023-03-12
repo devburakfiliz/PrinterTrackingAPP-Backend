@@ -48,7 +48,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<User>>(_userDal.GetAll(), Messages.UsersListed);
         }
 
-        [SecuredOperation("admin")]
+       
         public IResult ChangePassword(int userId, string oldPassword, string newPassword)
         {
             var user = _userDal.Get(x => x.Id == userId);
