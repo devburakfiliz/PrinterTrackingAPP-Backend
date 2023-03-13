@@ -35,6 +35,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<PrinterModelManager>().As<IPrinterModelService>().SingleInstance();
             builder.RegisterType<EfPrinterModelDal>().As<IPrinterModelDal>().SingleInstance();
 
+            builder.RegisterType<TonerRefillingManager>().As<ITonerRefillingService>().SingleInstance();
+            builder.RegisterType<EfTonerRefillingDal>().As<ITonerRefillingDal>().SingleInstance();
+
             builder.RegisterType<TonerBrandManager>().As<ITonerBrandService>().SingleInstance();
             builder.RegisterType<EfTonerBrandDal>().As<ITonerBrandDal>().SingleInstance();
 

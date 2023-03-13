@@ -20,6 +20,9 @@ namespace DataAccess.Concrete.EntityFramework
                              join brand in context.TonerBrands on tonertracking.BrandId equals brand.Id
                              join toner in context.Toners on tonertracking.TonerId equals toner.Id
                              join model in context.TonerModels on tonertracking.ModelId equals model.Id
+                            
+                             
+                             
 
 
                              select new TonerTrackingDto
@@ -31,9 +34,11 @@ namespace DataAccess.Concrete.EntityFramework
                                  BrandName = brand.BrandName,
                                  ModelId = model.Id,
                                  ModelName = model.ModelName,
-                                 TonerRefilling=tonertracking.TonerRefilling,
                                  Description=tonertracking.Description,
-                                 Status=tonertracking.Status
+                                 
+                                
+
+
 
                              };
                 return result.ToList();

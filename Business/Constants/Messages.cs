@@ -31,6 +31,12 @@ namespace Business.Constants
         public static string TonerListed = "Toner Listelendi.";
 
 
+        public static string RefillingAdded = "Dolum Eklendi.";
+        public static string RefillingUpdated = "Dolum güncellendi.";
+        public static string RefillingDelete = "Dolum Silindi.";
+        public static string RefillingListed = "Dolum Listelendi.";
+
+
         public static string PrinterNamwInValid = "ÜRÜN İSMİ GEÇERSİZ";
 
 

@@ -16,8 +16,8 @@ namespace Entities.DTOs
         public int ModelId { get; set; }
         public string ModelName { get; set; }
         public string SerialNumber { get; set; }
-        public int TonerRefilling { get; set; }
         public string Description { get; set; }
-        public string Status { get; set; }
+
+
     }
 }

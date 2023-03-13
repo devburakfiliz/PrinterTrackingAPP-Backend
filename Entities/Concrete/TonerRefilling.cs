@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class TonerTracking :IEntity
+    public class TonerRefilling :IEntity
     {
         public int Id { get; set; }
         public int TonerId { get; set; }
-        public int BrandId { get; set; }
-        public int ModelId { get; set; }
-        public string Description { get; set; }
+        public int Refilling { get; set; }
 
     }
 }

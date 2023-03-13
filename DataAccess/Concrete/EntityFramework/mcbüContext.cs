@@ -23,6 +23,7 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<PrinterBrand> PrinterBrands { get; set; }
         public DbSet<PrinterImage> PrinterImages { get; set; }
         public DbSet<TonerTracking> TonerTrackings { get; set; }
+        public DbSet<TonerRefilling> TonerRefillings { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
